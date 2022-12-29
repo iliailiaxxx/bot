@@ -22,7 +22,7 @@ function sendRemind(){
 }
 
 
-schedule.scheduleJob('5 * * * * *', () => {sendRemind()})
+schedule.scheduleJob('/1 * * * *', () => {sendRemind()})
 
 // setInterval(()=>{
 //     sendRemind()
