@@ -22,10 +22,10 @@ function sendRemind(){
 }
 
 
-schedule.scheduleJob('/1 * * * *', () => {sendRemind()})
+//schedule.scheduleJob('1 * * * * *', () => { sendRemind()})
 
-// setInterval(()=>{
-//     sendRemind()
-// },15000)
+setInterval(()=>{
+    sendRemind()
+},15000)
 
 app.listen(PORT,()=>{})
