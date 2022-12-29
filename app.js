@@ -21,12 +21,12 @@ async function sendRemind(){
 }
 
 
-//schedule.scheduleJob('1 * * * * *', () => { sendRemind()})
-
-setInterval(()=>{
+schedule.scheduleJob('* 0 5 * * 1-5', () => { 
     sendRemind().then(()=>{
         counter++
     })
-},20000)
+})
+
+
 
 app.listen(PORT,()=>{})
