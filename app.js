@@ -15,17 +15,18 @@ const TelegramBot = require('node-telegram-bot-api');
 const token = '5659999694:AAEKgoPjaUWZmHscyKLpsROpljHqRMSddoM';
 const bot = new TelegramBot(token);
 
-function sendRemind(){
+async function sendRemind(){
     if(counter === array.length){counter = 0}
-    bot.sendMessage(testChat,`${array[counter]}${text}`)
-    counter++
+    await bot.sendMessage(testChat,`${array[counter]}${text}`)
 }
 
 
 //schedule.scheduleJob('1 * * * * *', () => { sendRemind()})
 
 setInterval(()=>{
-    sendRemind()
-},15000)
+    sendRemind().then(()=>{
+        counter++
+    })
+},20000)
 
 app.listen(PORT,()=>{})
