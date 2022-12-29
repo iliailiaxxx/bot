@@ -3,7 +3,7 @@ const app = express()
 const schedule = require('node-schedule')
 const PORT = process.env.PORT ||3000
 const ardiChat = '-799921306'
-const testChat = '-788676629'
+const testChat = '2050460099'
 const array = ['Леша','Натали','Богдан','Настя','Илья','Женя','Коля','Влад','Саша Стребков','Саша Соколов','Яна','Даша','Костя','Кирилл','Саша Шкаликов']
 let counter = 0
 const text = ` сегодня дежурный
@@ -21,7 +21,7 @@ async function sendRemind(){
 }
 
 
-schedule.scheduleJob('* 0 5 * * 1-5', () => { 
+schedule.scheduleJob('5 * * * * *', () => { 
     sendRemind().then(()=>{
         counter++
     })
