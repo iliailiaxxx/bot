@@ -21,7 +21,7 @@ async function sendRemind(){
 }
 
 
-schedule.scheduleJob('5 * * * * *', () => { 
+schedule.scheduleJob('0 25 5 * * *', () => { 
     sendRemind().then(()=>{
         counter++
     })
