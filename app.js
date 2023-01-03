@@ -20,15 +20,13 @@ const bot = new TelegramBot(token);
 let gdate = new Date()
 
 const rule = new schedule.RecurrenceRule();
-rule.hour = 14;
-rule.minute = 30;
-rule.second = 1;
+rule.minute = 24;
 rule.tz = 'Etc/UTC';
 
 schedule.scheduleJob(rule, async()=>{
     let current = await getFromDb()
     if(current.data.data.date === gdate.getDate()){
-        return
+        
     }
     const currentIndex = array.indexOf(current.data.data.name)
     const nextIndex = (currentIndex + 1) % array.length
