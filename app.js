@@ -20,7 +20,7 @@ const bot = new TelegramBot(token);
 let gdate = new Date()
 
 const rule = new schedule.RecurrenceRule();
-rule.minute = 24;
+rule.second = 1;
 rule.tz = 'Etc/UTC';
 
 schedule.scheduleJob(rule, async()=>{
