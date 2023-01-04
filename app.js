@@ -35,7 +35,7 @@ schedule.scheduleJob(rule, async()=>{
     putInDb(currentName,gdate.getDate())
 });
 
-schedule.scheduleJob('1 * * * * *', async()=>{
+schedule.scheduleJob('1 * * * * *',()=>{
     console.log('1')
 });
 
