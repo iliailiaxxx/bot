@@ -35,16 +35,8 @@ schedule.scheduleJob(rule, async()=>{
     putInDb(currentName,gdate.getDate())
 });
 
-schedule.scheduleJob('* 50 * * * *', async()=>{
-    let current = await getFromDb()
-    if(current.data.data.date === gdate.getDate()){
-        
-    }
-    const currentIndex = array.indexOf(current.data.data.name)
-    const nextIndex = (currentIndex + 1) % array.length
-    const currentName = array[nextIndex]
-    bot.sendMessage(testChat,`${currentName}${text}`)
-    putInDb(currentName,gdate.getDate())
+schedule.scheduleJob('1 * * * * *', async()=>{
+    console.log('1')
 });
 
 
