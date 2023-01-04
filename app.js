@@ -1,6 +1,5 @@
 const express = require("express")
 const app = express()
-const schedule = require('node-schedule')
 const axios = require('axios')
 const PORT = process.env.PORT ||3000
 const ardiChat = '-799921306'
@@ -17,13 +16,8 @@ const TelegramBot = require('node-telegram-bot-api');
 const token = '5659999694:AAHurTwbHAUZWKIwjYSXaE7DimmKZXNmZTY';
 const bot = new TelegramBot(token);
 
-let gdate = new Date()
 
-const rule = new schedule.RecurrenceRule();
-rule.hour = 9;
-rule.tz = 'Etc/UTC';
-
-async app()=>{
+async function apps(){
     let current = await getFromDb()
     if(current.data.data.date === gdate.getDate()){
         return   
@@ -34,9 +28,7 @@ async app()=>{
     bot.sendMessage(testChat,`${currentName}${text}`)
     putInDb(currentName,gdate.getDate())
 }
-app()
-
-
+apps()
 
 
 
