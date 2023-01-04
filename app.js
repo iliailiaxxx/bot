@@ -20,7 +20,7 @@ const bot = new TelegramBot(token);
 async function apps(){
     let current = await getFromDb()
     if(current.data.data.date === gdate.getDate()){
-        return   
+        //return   
     }
     const currentIndex = array.indexOf(current.data.data.name)
     const nextIndex = (currentIndex + 1) % array.length
