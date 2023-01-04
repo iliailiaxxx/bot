@@ -23,7 +23,7 @@ const rule = new schedule.RecurrenceRule();
 rule.hour = 9;
 rule.tz = 'Etc/UTC';
 
-schedule.scheduleJob(rule, async()=>{
+async app()=>{
     let current = await getFromDb()
     if(current.data.data.date === gdate.getDate()){
         return   
@@ -33,7 +33,8 @@ schedule.scheduleJob(rule, async()=>{
     const currentName = array[nextIndex]
     bot.sendMessage(testChat,`${currentName}${text}`)
     putInDb(currentName,gdate.getDate())
-});
+}
+app()
 
 
 
