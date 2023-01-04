@@ -11,6 +11,7 @@ const text = ` сегодня дежурный
 - напоминаем коллегам, кто не убрал после себя
 - мусорные ведра`
 
+let gdate = new Date()
 
 const TelegramBot = require('node-telegram-bot-api');
 const token = '5659999694:AAHurTwbHAUZWKIwjYSXaE7DimmKZXNmZTY';
@@ -19,9 +20,7 @@ const bot = new TelegramBot(token);
 
 async function apps(){
     let current = await getFromDb()
-    if(current.data.data.date === gdate.getDate()){
-        //return   
-    }
+    
     const currentIndex = array.indexOf(current.data.data.name)
     const nextIndex = (currentIndex + 1) % array.length
     const currentName = array[nextIndex]
