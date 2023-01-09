@@ -24,7 +24,7 @@ async function apps(){
     const currentIndex = array.indexOf(current.data.data.name)
     const nextIndex = (currentIndex + 1) % array.length
     const currentName = array[nextIndex]
-    await bot.sendMessage(testChat,`${currentName}${text}`)
+    await bot.sendMessage(ardiChat,`${currentName}${text}`)
     await putInDb(currentName,gdate.getDate())
     process.exit()
 }
