@@ -21,7 +21,9 @@ const bot = new TelegramBot(token);
 
 async function apps(){
     let current = await getFromDb()
-    
+    if(gdate.getDay()===6){
+        process.exit()
+    }
     const currentIndex = array.indexOf(current.data.data.name)
     const nextIndex = (currentIndex + 1) % array.length
     const currentName = array[nextIndex]
