@@ -21,6 +21,9 @@ const bot = new TelegramBot(token);
 
 async function apps(){
     let current = await getFromDb()
+    if(current.data.data.date===gdate.getDate()){
+        process.exit()
+    }
     if(gdate.getDay()===6||gdate.getDay()===0){
         process.exit()
     }
@@ -29,7 +32,6 @@ async function apps(){
     const currentName = array[nextIndex]
     await bot.sendMessage(ardiChat,`${currentName}${text}`)
     await putInDb(currentName,gdate.getDate())
-    process.exit()
 }
 apps()
 
